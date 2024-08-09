@@ -98,3 +98,4 @@ En caso de guardar los resultados, se tendrá que hacer clic en el botón de gua
 
 
 ## Licencia
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
