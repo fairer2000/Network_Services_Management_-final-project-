@@ -1,101 +1,101 @@
-# Network Services Management (final project)
+# Network Services Management
 
-Programa en el que desde una máquina virtual, y con ayuda del lenguaje de programación python y algunas librerías, entables la comunicación entre los servidores con el fin de efectuar consultas sin interactuar con los servidores.
+Program in which, from a virtual machine, and with the help of the Python programming language and some libraries, you can establish communication between servers in order to perform queries without interacting with the servers.
 
-## Requisitos previos
-Tener instalados las librerías:
+## Previous requirements
+You must have the following libraries installed:
 
 - gi
 - pexpect
 - paramiko
 - pytz
 
-## Ejecución del programa
+## Execution of the program
 
-La forma de ingresar al programa es mediante la terminal, para ejecutar el programa solo se debe de ingresar:
+The way to enter the program is through the terminal, to run the program you only have to enter:
 
 ```cmd
 python3 app.py
 ```
 
-Nota:
-El programa fue desarrollado en el sistema operativo Linux, por lo que es importante que el programa sea ejecutado en este entorno.
-El usuario debe de tener instalado en su máquina la versión más reciente de python 3.
+Note:
+The program was developed on the Linux operating system, so it is important that the program be run in this environment.
+The user must have the latest version of python 3 installed on his machine.
 
-## Uso del programa
+## Use of the program
 
-Una vez ejecutado el comando, se desplegará la ventana del programa:
+Once the command is executed, the program window will be displayed:
 
 ![menu](https://github.com/user-attachments/assets/9a720c0e-f8b7-48ab-a310-cf7a6887d46c)
 
-Dentro podremos encontrarnos con los diferentes elementos del programa que como usuario puede interactuar, entre esos es el despliegue de opciones de "Selecciona el modo de consulta", que da la opción a elegir de los protocolos de consulta, Telnet o SSH.
+Inside we will be able to find the different elements of the program that as a user can interact with, among those is the display of options of “Selecciona el modo de consulta”, which gives the option to choose from the query protocols, Telnet or SSH.
 
 ![query mode](https://github.com/user-attachments/assets/7f45ce92-69cd-40e3-9e51-4be3c62816fa)
 
-Entre otro de los elementos que puede seleccionar el usuario es la opción "Selecciona el modo de consulta", que se nos despliega una lista de consultas a poder realizar:
+Another of the elements that can be selected by the user is the option “Selecciona el modo de consulta”, which displays a list of queries that can be made:
 
 ![Type of query](https://github.com/user-attachments/assets/7e672789-37c9-4e0e-a772-e21622f2854e)
 
-Las consultas mostradas son:
-- Mostrar configuración de los dispositivos: Se muestran las interfaces activas y con su respectivo puerto de enlace.
-- Mostrar versión de los dispositivos: Se muestra la información de los routers usados.
-- Mostrar SSH de los routers: Muestra al usuario si la SSH está habilitada.
-- Mostrar enrutamiento de cada router: Muestra el enrutamiento utilizado en cada routers con sus respectivas direcciones IP.
-- Mostrar el enrutamiento de la red: Muestra el enrutamiento general utilizado en la red o topología.
-- Mostrar información de las VPCs: Muestra las ARP de de los dispositivos conectados en el router, entre esas las VPC.
-- Mostrar NAT: Muestra las NAT traducidas de los dispositivos.
-- Mostrar las access-list: Muestra las listas de acceso implementadas en los dispositivos.
+The queries shown are:
+- Mostrar configuración de los dispositivos: The active interfaces are shown with their respective gateway port.
+- Mostrar versión de los dispositivos: The information of the used routers is shown.
+- Mostrar SSH de los routers: Shows the user if SSH is enabled.
+- Mostrar enrutamiento de cada router: Displays the routing used on each router with their respective IP addresses.
+- Mostrar el enrutamiento de la red: Shows the general routing used in the network or topology.
+- Mostrar información de las VPCs: Displays the ARP of the devices connected to the router, including the VPCs.
+- Mostrar NAT: Displays the translated NATs of the devices.
+- Mostrar las access-list: Displays the access lists implemented on the devices.
 
-Nota: al momento de ingresar los hostname y direcciones IP, asegurarse que en dichas direcciones, en sentido de sus interfaces, no este implementado la lista de acceso. Se sugiere que se ingrese el hostname y dirección IP en la interface donde no tiene listas de acceso.
+Note: when entering the hostname and IP addresses, make sure that the access list is not implemented on these addresses in the sense of their interfaces. It is suggested that you enter the hostname and IP address on the interface where you do not have access lists.
 
-Para que el usuario ingrese el hostname y las direcciones, se hace por los cuadros de texto, al terminar de ingresar los datos se debe de dar clic en el botón Ingresar datos del router.
+For the user to enter the hostname and addresses, it is done through the text boxes. When the user has finished entering the data, click on the Enter router data button.
 
 ![Hostname and IP](https://github.com/user-attachments/assets/e8ae6fbe-9a63-4800-90b1-81d7357f5399)
 
-Visualizaremos dos cuadros en blanco, el cuadro izquierdo mostrará el hostname y las direcciones IP ingresados de los dispositivos. 
-Otra manera de ingresar los hostname y direcciones IP es por medio de un archivo JSON.
+We will see two blank boxes, the left box will show the entered hostname and IP addresses of the devices. 
+Another way to enter the hostname and IP addresses is by means of a JSON file.
 
 ![Upload Files Field](https://github.com/user-attachments/assets/3a3c40cb-6bbf-4d6e-bf18-11b8d9dd689b)
 
-Dicho contenido dentro del archivo debe de seguirse de la siguiente manera:
+Such content within the file should be followed as follows:
 
 {“Nombre del hostname”:{“prompt”:”Nombre del hostname#”, “ip” :“Dirección_IP”}}
 
-Como ejemplo del contenido que debe de tener el archivo JSON es el siguiente:
+As an example of the content that the JSON file should have is the following:
 
 ![JSON file](https://github.com/user-attachments/assets/b4e7da4c-8e87-4c1e-8f8e-52b044dde05f)
 
-En el cuadro de la derecha, se mostrará los resultados de la consulta.
+In the box on the right, the results of the query will be displayed.
 ![results textbox](https://github.com/user-attachments/assets/74c7fa78-e14a-4e59-bbab-da99361fd9f1)
 
-Entre los botones con los que se puede interactuar es:
+Among the buttons that can be interacted with are:
 
-- Vaciar datos: Vacía los hostname y dispositivos IP ingresados.
-- Guardar resultados en un txt: De los resultados obtenidos en la última consulta. Se pueden guardar en un archivo txt.
+- Empty data: Empty the hostname and IP devices entered.
+- Save results in a txt: From the results obtained in the last query. They can be saved in a txt file.
 
 ![save and empty buttons](https://github.com/user-attachments/assets/55819181-1c2a-468d-88fd-76b5587a8b21)
 
-Dentro se ingresa el hostname y dirección IP de los routers a analizar, dentro se ingresa en los cuadros en blanco.
+Inside, enter the hostname and IP address of the routers to be analyzed, then enter them in the blank boxes.
 
 ![inputted data](https://github.com/user-attachments/assets/e14a7535-aa49-411c-88c3-3950be21347e)
 
-Se alista el programa para realizar la consulta correspondiente mediante el protocolo Telnet.
-Al dar clic en el botón de “realizar consulta”, nos aparecerá en el cuadro del lado de la derecha el resultado
+The program is ready to perform the corresponding query through the Telnet protocol.
+When clicking on the “perform query” button, the result will appear in the box on the right side of the screen
 
 ![query result](https://github.com/user-attachments/assets/11ec7791-56ed-4d23-a71b-c75bc137fe94)
 
-Se realizará la misma consulta, pero se cambiará el protocolo Telnet por SSH.
+The same query will be performed, but the Telnet protocol will be changed to SSH.
 
 ![change of protocol](https://github.com/user-attachments/assets/67396277-d751-433c-ae64-c0e6a2b4b350)
 
-Al término de la ejecución de la consulta, nos aparecerá el siguiente resultado.
+At the end of the query execution, the following result will appear.
 
 ![general content](https://github.com/user-attachments/assets/347a9951-6bf3-49a1-b315-e25691583105)
 
-En caso de guardar los resultados, se tendrá que hacer clic en el botón de guardar, y el archivo se almacenará enla ubicación donde está el programa, con el siguiente nombre
+In case of saving the results, you will have to click on the save button, and the file will be stored in the location where the program is, with the following name
 
 ![Results file](https://github.com/user-attachments/assets/e2a1832b-ed53-444a-9089-791993232ff5)
 
 
-## Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+## License
+This project is licensed under the MIT License. Consult the file [LICENSE](LICENSE) for more details.
